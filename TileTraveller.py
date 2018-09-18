@@ -11,3 +11,8 @@ Eftirfarandi hreyfingar eru ekki leyfðar (veggir):
 #Breytur fyrir hreyfingu leikmannsins í völundarhúsinu
 x = 1
 x = 1
+
+#while lykkja sem keyrir þangað til að x = 3 og y = 1
+
+while x != 3 and y != 1:
+    
