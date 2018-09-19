@@ -44,19 +44,33 @@ def valid_directions(x,y):
     elif x == 3 and y == 2: #3,2
         print("You can travel: (N)orth or (S)outh.")
         return "ns"
-"""
-def direction(valid_direction, valid_direction2 = "", valid_direction3 =):
+
+def direction(valid_directions):
     #Kannar hvaða átt notandinn slær inn og athugar hvort að það er átt sem er í lagi og skilar svo áttinni sem notandinn færir sig í
     str_movement = input("Direction: ")
-    while str_movement != valid_direction or str_movement != valid_direction2 or str_movement != valid_direction3:
-        print("Not a valid direction!")
-        str_movement = input("Direction: ")
-        str_movement = str_movement.lower()
-    if str_movement == valid_direction:
-        return valid_direction
-    elif str_movement == valid_direction2:
-        return valid_direction2
-    elif str_movement == valid_direction3:
-        return valid_direction3
-"""
-str_valid = valid_directions(1,1)
+    str_movement.lower()
+    for char in valid_directions:
+        while char != str_movement:
+            print("Not a valid direction!")
+            str_movement = input("Direction: ")
+            str_movement = str_movement.lower()
+    print(char)
+    return char
+
+def mov_arithmetic(x, y, str_direction):
+    #Tekur við núverandi stöðu x,y í hnitakerfinu og áttin sem notandi vill hreyfa sig í. Skilar tuple sem mig minnir að maður þurfi
+    #að afpakka með því að kalla í fallið með "x, y = mov_arithmetic(x,y,str_direction)"
+    if str_direction == "n":
+        y += 1
+    elif str_direction == "s":
+        y -= 1
+    elif str_direction == "e":
+        x += 1
+    elif str_direction == "w":
+        x -= 1
+    return x,y
+
+
+
+str_valid = valid_directions(2,1)
+str_direction = direction("n")
