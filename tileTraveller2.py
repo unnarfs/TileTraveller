@@ -44,7 +44,7 @@ def valid_directions(x,y):
     elif x == 3 and y == 2: #3,2
         print("You can travel: (N)orth or (S)outh.")
         return "ns"
-
+"""
 def direction(valid_direction, valid_direction2 = "", valid_direction3 =):
     #Kannar hvaða átt notandinn slær inn og athugar hvort að það er átt sem er í lagi og skilar svo áttinni sem notandinn færir sig í
     str_movement = input("Direction: ")
@@ -58,3 +58,5 @@ def direction(valid_direction, valid_direction2 = "", valid_direction3 =):
         return valid_direction2
     elif str_movement == valid_direction3:
         return valid_direction3
+"""
+str_valid = valid_directions(1,1)
