@@ -2,7 +2,9 @@
 https://github.com/unnarfs/TileTraveller
 
 Answers:
-
+1. The second implementation was easier because it allowed me to break the problem into smaller chunks, which I could then tackle individually.
+2. The second implementation is easier to read because it's much easier to follow along what is happening in the code
+3. It was possible to reduce the amount of repeat code by a large amount since the functions can be called when needed rather than having those lines of code for each separate instance.
 
 
 Taka punkt sem byrjar á hnitum x, y = 1 og færa hann í gegnum völundarhús. Hann verður að vera innan 1 < x, y < 3.
@@ -29,18 +31,12 @@ def valid_directions(x,y):
     elif x == 1 and y == 3: #1,3
         print("You can travel: (E)ast or (S)outh.")
         return "es"
-#    elif x == 2 and y == 1: #2,1 (má samþætta með 1,1)
-#        print("You can travel: (N)orth.")
-#        return "n"
     elif (x == 2 and y == 2) or (x == 3 and y == 3): #2,2
         print("You can travel: (S)outh or (W)est.")
         return "sw"
     elif x == 2 and y == 3: #2,3
         print("You can travel: (E)ast or (W)est.")
         return "ew"
-#    elif x == 3 and y == 3: #3,3 (má samþætta með 2,2)
-#        print("You can travel: (S)outh or (W)est.")
-#        return "sw"
     elif x == 3 and y == 2: #3,2
         print("You can travel: (N)orth or (S)outh.")
         return "ns"
@@ -48,7 +44,7 @@ def valid_directions(x,y):
 def direction(valid_directions):
     #Kannar hvaða átt notandinn slær inn og athugar hvort að það er átt sem er í lagi og skilar svo áttinni sem notandinn færir sig í
     str_movement = input("Direction: ")
-    str_movement.lower()
+    str_movement = str_movement.lower()
     while str_movement not in valid_directions:
         print("Not a valid direction!")
         str_movement = input("Direction: ")
@@ -73,8 +69,9 @@ str_wherecanto = ""
 str_checkdirection = ""
 
 while x != 3 or y != 1:
-    str_wherecanto = valid_directions(x,y)
-    str_checkdirection = direction(str_wherecanto)
-    x, y = mov_arithmetic(x, y, str_checkdirection)
+#    str_wherecanto = valid_directions(x,y)
+#    str_checkdirection = direction(str_wherecanto)
+#    x, y = mov_arithmetic(x, y, str_checkdirection)
+    x, y = mov_arithmetic(x, y, direction(valid_directions(x,y)))
 
 print("Victory!")
