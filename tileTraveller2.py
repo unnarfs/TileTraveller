@@ -49,13 +49,11 @@ def direction(valid_directions):
     #Kannar hvaða átt notandinn slær inn og athugar hvort að það er átt sem er í lagi og skilar svo áttinni sem notandinn færir sig í
     str_movement = input("Direction: ")
     str_movement.lower()
-    for char in valid_directions:
-        while char != str_movement:
-            print("Not a valid direction!")
-            str_movement = input("Direction: ")
-            str_movement = str_movement.lower()
-    print(char)
-    return char
+    while str_movement not in valid_directions:
+        print("Not a valid direction!")
+        str_movement = input("Direction: ")
+        str_movement = str_movement.lower()
+    return str_movement
 
 def mov_arithmetic(x, y, str_direction):
     #Tekur við núverandi stöðu x,y í hnitakerfinu og áttin sem notandi vill hreyfa sig í. Skilar tuple sem mig minnir að maður þurfi
@@ -70,7 +68,13 @@ def mov_arithmetic(x, y, str_direction):
         x -= 1
     return x,y
 
+#Strengir til að senda í föllin
+str_wherecanto = ""
+str_checkdirection = ""
 
+while x != 3 or y != 1:
+    str_wherecanto = valid_directions(x,y)
+    str_checkdirection = direction(str_wherecanto)
+    x, y = mov_arithmetic(x, y, str_checkdirection)
 
-str_valid = valid_directions(2,1)
-str_direction = direction("n")
+print("Victory!")
